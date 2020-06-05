@@ -5,15 +5,15 @@
     <title>Index My ass</title>
 </head>
 <body>
-{% if latest_question_list %}
-    <ul>
+
+<ul>
     {% for question in latest_question_list %}
         <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% empty %}
+        <li>No polls are available.</li>
     {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+</ul>
+
 
 </body>
 </html>
